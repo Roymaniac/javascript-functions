@@ -19,7 +19,7 @@ const corners = (state = []) => {
   if (state.length === 0) {
     return {
       topRight: [0, 0],
-      bottomLeft: [0, 0],
+      bottomLeft: [0, 0]
     };
   }
 
@@ -27,7 +27,7 @@ const corners = (state = []) => {
   const xy = state.map(([_, y]) => y);
   return {
     topRight: [Math.max(...xs), Math.max(...xy)],
-    bottomLeft: [Math.min(...xs), Math.min(...xy)],
+    bottomLeft: [Math.min(...xs), Math.min(...xy)]
   };
 };
 
@@ -83,14 +83,14 @@ const calculateNext = (state) => {
 const iterate = (state, iterations) => {
   const states = [state];
   for (let i = 0; i < iterations; i++){
-    states.push(calculateNext(states[states.length - 1]))
+    states.push(calculateNext(states[states.length - 1]));
   }
   return states;
 };
 
 const main = (pattern, iterations) => {
   const results = iterate(startPatterns[pattern], iterations);
-  results.forEach(r => console.log(printCells(r)))
+  results.forEach(r => console.log(printCells(r)));
 };
 
 const startPatterns = {
